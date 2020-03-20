@@ -28,19 +28,19 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [x] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
 
-      Actions, reducers, and stores are the three crucial components of redux's state managment system. In the system data flows in one direction from the view, to action creators, to the reducer which ultimately updates state tree within the store. Actions are messages sent from the view to the reducer, which are typically created and dispatched by action creator functions which are called from the view. Reducers are responsible for taking in actions and the current application state and outputting the new state as a result of the action. The store keeps tract of the current state tree and passes this state tree to the view.
+  Actions, reducers, and stores are the three crucial components of redux's state managment system. In the system data flows in one direction from the view, to action creators, to the reducer which ultimately updates state tree within the store. Actions are messages sent from the view to the reducer, which are typically created and dispatched by action creator functions which are called from the view. Reducers are responsible for taking in actions and the current application state and outputting the new state as a result of the action. The store keeps tract of the current state tree and passes this state tree to the view.
 
 - [x] What is the difference between Application state and Component state? When would be a good time to use one over the other?
 
-      Application state is what something like redux provides. It is state that is defined at the highest level component and can be accessed globaly. Component state is state defined and existing within a component using something like useState. Application state is useful in large scale apps where state can get complex and makes it easier for developers to conceptualize and work with the state. Component state is useful in smaller apps where complex state managment is not needed and in situations such as forms where it is best practice to have controlled forms with their own state.
+  Application state is what something like redux provides. It is state that is defined at the highest level component and can be accessed globaly. Component state is state defined and existing within a component using something like useState. Application state is useful in large scale apps where state can get complex and makes it easier for developers to conceptualize and work with the state. Component state is useful in smaller apps where complex state managment is not needed and in situations such as forms where it is best practice to have controlled forms with their own state.
 
 - [x] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
 
-      Redux thunk is a middleware library that allows us to return a function as a result of an action creator rather than an action object. The returned function is known as a thunk. This allows us to do things like make asyncronous calls within our action functions.
+  Redux thunk is a middleware library that allows us to return a function as a result of an action creator rather than an action object. The returned function is known as a thunk. This allows us to do things like make asyncronous calls within our action functions.
 
 - [x] What is your favorite state management system you've learned and this sprint? Please explain why!
-        
-       Thus far my favorite state management system is redux. I prefer how organized it forces code to be compared to the looser requirements context imposes. Additionally it seems that context is useful in a very specific set of circumstances which I have not personally been faced with making it difficult for me to see it's value.
+
+  Thus far my favorite state management system is redux. I prefer how organized it forces code to be compared to the looser requirements context imposes. Additionally it seems that context is useful in a very specific set of circumstances which I have not personally been faced with making it difficult for me to see it's value.
 
 ## Project Set Up
 
