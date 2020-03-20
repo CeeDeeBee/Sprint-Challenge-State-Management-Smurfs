@@ -8,6 +8,11 @@ import {
 	POSTING_SMURF_FAILURE,
 	POSTING_SMURF_SUCCESS
 } from "../actions/postActions";
+import {
+	DELETE_SMURF,
+	DELETE_SMURF_SUCCESS,
+	DELETE_SMURF_FAILURE
+} from "../actions/deleteActions";
 
 const initialState = {
 	isLoading: false,
@@ -17,6 +22,7 @@ const initialState = {
 
 export const smurfReducer = (state = initialState, action) => {
 	switch (action.type) {
+		// FETCH/GET actions
 		case FETCHING_SMURFS:
 			return {
 				...state,
@@ -35,6 +41,7 @@ export const smurfReducer = (state = initialState, action) => {
 				isLoading: false,
 				error: action.payload
 			};
+		// POST actions
 		case POSTING_SMURF:
 			return {
 				...state,
@@ -48,6 +55,25 @@ export const smurfReducer = (state = initialState, action) => {
 				smurfs: action.payload
 			};
 		case POSTING_SMURF_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+				error: action.payload
+			};
+		// DELETE actions
+		case DELETE_SMURF:
+			return {
+				...state,
+				isLoading: true,
+				error: ""
+			};
+		case DELETE_SMURF_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				smurfs: action.payload
+			};
+		case DELETE_SMURF_FAILURE:
 			return {
 				...state,
 				isLoading: false,

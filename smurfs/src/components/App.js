@@ -3,18 +3,20 @@ import { Route, Link } from "react-router-dom";
 
 import SmurfsList from "./SmurfsList";
 import SmurfForm from "./SmurfForm";
-import "./App.css";
+import "./App.scss";
 
 const App = () => {
 	return (
 		<div className="App">
 			<h1>SMURFS! 2.0 W/ Redux</h1>
-			<Link to="/">Smurfs</Link>
-			<Link to="/add">Add Smurf</Link>
+			<div className="links">
+				<Link to="/">Smurfs</Link>
+				<Link to="/form">Add Smurf</Link>
+			</div>
 			<Route exact path="/">
 				<SmurfsList />
 			</Route>
-			<Route path="/add">
+			<Route path="/form">
 				<SmurfForm />
 			</Route>
 		</div>

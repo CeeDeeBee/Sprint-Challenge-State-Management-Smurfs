@@ -1,0 +1,62 @@
+.App {
+	width: 80%;
+	margin: 0 auto;
+
+	h1 {
+		text-align: center;
+	}
+
+	.links {
+		width: 50%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-around;
+	}
+}
+
+.smurfs-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.smurf-card {
+		position: relative;
+		text-align: center;
+		border: 2px solid black;
+		border-radius: 10px;
+		padding: 2% 5%;
+		margin: 4% 0;
+
+		.trash-icon {
+			position: absolute;
+			right: 5%;
+			top: 5%;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+	}
+}
+
+.smurf-form {
+	form {
+		margin: 2% auto;
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+
+		input {
+			margin: 2% 0;
+			padding: 2%;
+			font-size: 1rem;
+		}
+
+		button {
+			padding: 2%;
+			font-size: 1rem;
+			color: white;
+			background-color: #88ccff;
+		}
+	}
+}
