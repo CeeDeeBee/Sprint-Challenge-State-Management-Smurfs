@@ -8,13 +8,14 @@ import SmurfCard from "./SmurfCard";
 const SmurfsList = ({ isLoading, error, smurfs, fetchAction }) => {
 	useEffect(() => {
 		fetchAction();
-	}, []);
+	}, [fetchAction]);
 
 	return (
 		<div className="smurfs-list">
-			{smurfs.map(smurf => (
-				<SmurfCard smurf={smurf} />
-			))}
+			{error && <h2 className="error">Error: {error}</h2>}
+			{!isLoading &&
+				!error &&
+				smurfs.map(smurf => <SmurfCard key={smurf.id} smurf={smurf} />)}
 		</div>
 	);
 };
