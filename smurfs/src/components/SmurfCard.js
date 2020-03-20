@@ -1,11 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faPen } from "@fortawesome/free-solid-svg-icons";
 
 import { deleteAction } from "../actions/deleteActions";
+import { setEditAction } from "../actions/editActions";
 
-const SmurfCard = ({ smurf, deleteAction }) => {
+const SmurfCard = ({ smurf, deleteAction, setEditAction }) => {
 	return (
 		<div className="smurf-card">
 			<FontAwesomeIcon
@@ -13,6 +15,13 @@ const SmurfCard = ({ smurf, deleteAction }) => {
 				icon={faTrash}
 				onClick={() => deleteAction(smurf.id)}
 			/>
+			<Link to="/form">
+				<FontAwesomeIcon
+					className="pencil-icon"
+					icon={faPen}
+					onClick={() => setEditAction(smurf)}
+				/>
+			</Link>
 			<h2>{smurf.name}</h2>
 			<p>Age: {smurf.age}</p>
 			<p>Height: {smurf.height}</p>
@@ -20,4 +29,4 @@ const SmurfCard = ({ smurf, deleteAction }) => {
 	);
 };
 
-export default connect(null, { deleteAction })(SmurfCard);
+export default connect(null, { deleteAction, setEditAction })(SmurfCard);

@@ -36,6 +36,16 @@
 				cursor: pointer;
 			}
 		}
+
+		.pencil-icon {
+			position: absolute;
+			right: 20%;
+			top: 5%;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
 	}
 }
 

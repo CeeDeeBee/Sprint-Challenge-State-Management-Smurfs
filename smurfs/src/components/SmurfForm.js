@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 
 import { postAction } from "../actions/postActions";
+import { putAction } from "../actions/editActions";
 
-const SmurfForm = ({ postAction }) => {
+const SmurfForm = ({ smurfToEdit, postAction, putAction }) => {
 	const [inputValues, setInputValues] = useState({
-		name: "",
-		age: "",
-		height: ""
+		name: smurfToEdit.name || "",
+		age: smurfToEdit.age || "",
+		height: smurfToEdit.height || ""
 	});
 
 	const handleChange = e => {
@@ -19,7 +20,9 @@ const SmurfForm = ({ postAction }) => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		postAction(inputValues);
+		smurfToEdit.name
+			? putAction(inputValues, smurfToEdit.id)
+			: postAction(inputValues);
 		setInputValues({
 			name: "",
 			age: "",
@@ -57,4 +60,10 @@ const SmurfForm = ({ postAction }) => {
 	);
 };
 
-export default connect(null, { postAction })(SmurfForm);
+const mapStateToProps = state => {
+	return {
+		smurfToEdit: state.smurfToEdit
+	};
+};
+
+export default connect(mapStateToProps, { postAction, putAction })(SmurfForm);

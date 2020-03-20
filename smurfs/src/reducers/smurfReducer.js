@@ -13,11 +13,22 @@ import {
 	DELETE_SMURF_SUCCESS,
 	DELETE_SMURF_FAILURE
 } from "../actions/deleteActions";
+import {
+	EDIT_SMURF,
+	PUT_SMURF,
+	PUT_SMURF_SUCCESS,
+	PUT_SMURF_FAILURE
+} from "../actions/editActions";
 
 const initialState = {
 	isLoading: false,
 	error: "",
-	smurfs: []
+	smurfs: [],
+	smurfToEdit: {
+		name: null,
+		age: null,
+		height: null
+	}
 };
 
 export const smurfReducer = (state = initialState, action) => {
@@ -74,6 +85,30 @@ export const smurfReducer = (state = initialState, action) => {
 				smurfs: action.payload
 			};
 		case DELETE_SMURF_FAILURE:
+			return {
+				...state,
+				isLoading: false,
+				error: action.payload
+			};
+		// Edit/PUT actions
+		case EDIT_SMURF:
+			return {
+				...state,
+				smurfToEdit: action.payload
+			};
+		case PUT_SMURF:
+			return {
+				...state,
+				isLoading: true,
+				error: ""
+			};
+		case PUT_SMURF_SUCCESS:
+			return {
+				...state,
+				isLoading: false,
+				smurfs: action.payload
+			};
+		case PUT_SMURF_FAILURE:
 			return {
 				...state,
 				isLoading: false,
