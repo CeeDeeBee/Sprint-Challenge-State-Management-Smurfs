@@ -22,22 +22,36 @@ In this challenge, you are to build a Smurfs village utilizing context or Redux 
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What problem does the context API help solve?
-- [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
-- [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
-- [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+- [x] What problem does the context API help solve?
+
+      The context api is useful in avoiding prop drilling when dealing with a large component tree. Context allows developers to access props from a parent without having to pass them through every intermediary child component. This is particularly useful when you have many child components which all need props that would need to be passed through one element using prop drilling.
+
+- [x] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+      Actions, reducers, and stores are the three crucial components of redux's state managment system. In the system data flows in one direction from the view, to action creators, to the reducer which ultimately updates state tree within the store. Actions are messages sent from the view to the reducer, which are typically created and dispatched by action creator functions which are called from the view. Reducers are responsible for taking in actions and the current application state and outputting the new state as a result of the action. The store keeps tract of the current state tree and passes this state tree to the view.
+
+- [x] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+      Application state is what something like redux provides. It is state that is defined at the highest level component and can be accessed globaly. Component state is state defined and existing within a component using something like useState. Application state is useful in large scale apps where state can get complex and makes it easier for developers to conceptualize and work with the state. Component state is useful in smaller apps where complex state managment is not needed and in situations such as forms where it is best practice to have controlled forms with their own state.
+
+- [x] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+      Redux thunk is a middleware library that allows us to return a function as a result of an action creator rather than an action object. The returned function is known as a thunk. This allows us to do things like make asyncronous calls within our action functions.
+
+- [x] What is your favorite state management system you've learned and this sprint? Please explain why!
+        
+       Thus far my favorite state management system is redux. I prefer how organized it forces code to be compared to the looser requirements context imposes. Additionally it seems that context is useful in a very specific set of circumstances which I have not personally been faced with making it difficult for me to see it's value.
 
 ## Project Set Up
 
 Follow these steps to set up your project:
 
-- [ ] `fork & clone` this repository.
-- [ ] `cd` into the forked copy of this repository.
-- [ ] **RUN** `npm install` to retrieve all `server-side` the dependencies.
-- [ ] **RUN** `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
-- [ ] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an array with one smurf in it returned to you. This is an array that your **API** will be using to store our Smurf Data.
-- [ ] **LOOK** at your `smurfs` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
+- [x] `fork & clone` this repository.
+- [x] `cd` into the forked copy of this repository.
+- [x] **RUN** `npm install` to retrieve all `server-side` the dependencies.
+- [x] **RUN** `npm start` to get your API up and running on `http://localhost:3333`. This is the **URL** you're going to need to use within your React app in order to make AJAX requests for data.
+- [x] After your API is up and running, you can open chrome and type in `http://localhost:3333/smurfs`. You should see an array with one smurf in it returned to you. This is an array that your **API** will be using to store our Smurf Data.
+- [x] **LOOK** at your `smurfs` directory and notice it's just a plain ol' React App that we've built using `create-react-app`.
 - [ ] **Open** `src/index.js` to make sure that your app is ready to roll with the proper middleware.
 - [ ] **cd** into `smurfs` and run `npm install` to retrieve the client side dependencies.
 - [ ] **RUN** `npm start` to fire up your React application. There ought to be a pretty little message awaiting you welcoming you to the app. `Follow` the prompting.
@@ -60,12 +74,12 @@ Follow these steps to set up your project:
 
 ```js
 [
-  {
-    name: "Brainey",
-    age: 200,
-    height: "5cm",
-    id: 0
-  }
+	{
+		name: "Brainey",
+		age: 200,
+		height: "5cm",
+		id: 0
+	}
 ];
 ```
 
@@ -93,18 +107,18 @@ Example of object created in Smurf DB:
 
 ```js
 [
-  {
-    name: "Brainey",
-    age: 200,
-    height: "5cm",
-    id: 0
-  },
-  {
-    name: "Sleepy",
-    age: 200,
-    height: "5cm",
-    id: 1
-  }
+	{
+		name: "Brainey",
+		age: 200,
+		height: "5cm",
+		id: 0
+	},
+	{
+		name: "Sleepy",
+		age: 200,
+		height: "5cm",
+		id: 1
+	}
 ];
 ```
 
@@ -153,11 +167,11 @@ Example:
 
 ```js
 output: [
-  {
-    name: "Sleepy",
-    age: 200,
-    height: "5cm",
-    id: 1
-  }
+	{
+		name: "Sleepy",
+		age: 200,
+		height: "5cm",
+		id: 1
+	}
 ];
 ```
